@@ -4,6 +4,12 @@ function Contact() {
     return (
         <>
             <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900 px-4">
+                <a
+                    href="/"
+                    className="absolute top-4 right-4 text-4xl text-black dark:text-white transition duration-200 font-bold"
+                >
+                    &times;
+                </a>
                 <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 w-full max-w-lg">
                     <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white text-center">Contact Us</h2>
                     <form className="flex flex-col gap-5">
