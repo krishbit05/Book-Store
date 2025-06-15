@@ -1,0 +1,53 @@
+import React from 'react';
+
+function Banner() {
+  return (
+    <div className="lg:mt-20 flex flex-col-reverse md:flex-row items-center justify-between px-6 md:px-12 lg:px-20 gap-6">
+      {/* Left Side */}
+      <div className="w-full max-w-xl mx-auto text-center md:text-left md:mx-0">
+        <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white/85">
+          <div>Hello, Welcome to learn</div>
+          <div className="flex flex-wrap justify-center md:justify-start gap-2 mt-1">
+            <div>something</div>
+            <div className="text-pink-500">new everyday!</div>
+          </div>
+        </div>
+        <p className="mt-4 text-gray-600 dark:text-white/50 max-w-md mx-auto md:mx-0">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos ipsam optio harum hic saepe, exercitationem sed iusto adipisci tenetur aliquid.
+        </p>
+
+        <div className="flex items-center border border-gray-300 rounded-md px-4 py-4 mt-5 max-w-md mx-auto md:mx-0 shadow-sm">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-6 h-6 text-black dark:text-white"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25H4.5a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.08 1.917l-7.5 4.5a2.25 2.25 0 01-2.34 0l-7.5-4.5A2.25 2.25 0 012.25 6.993V6.75"
+            />
+          </svg>
+
+          <input className="outline-none w-full ml-2 text-md dark:bg-black dark:text-white" type="text" placeholder="Enter your email..." />
+        </div>
+
+        <div className="mt-5">
+          <button className="bg-pink-500 text-white px-5 py-2 rounded-md hover:bg-pink-400 transition">
+            Get Started
+          </button>
+        </div>
+      </div>
+
+      {/* Right Side Image */}
+      <div className="flex justify-center w-full">
+        <img className="max-w-xl w-full h-auto object-contain " src="/books1.png" alt="Stack of educational books" />
+      </div>
+    </div>
+  );
+}
+
+export default Banner;

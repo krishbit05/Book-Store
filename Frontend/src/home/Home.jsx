@@ -1,0 +1,22 @@
+import React from 'react'
+import Banner from '../components/Banner'
+import Footer from '../components/Footer'
+import Freebooks from '../components/Freebooks'
+import Navbar from '../components/Navbar'
+
+function Home() {
+    return (
+        <>
+            <div className="overflow-x-hidden dark:bg-black">
+                <Navbar />               
+                <main className="pt-20">
+                    <Banner />
+                    <Freebooks />
+                </main>
+                <Footer/>
+            </div>
+        </>
+    )
+}
+
+export default Home
