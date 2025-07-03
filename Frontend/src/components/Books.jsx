@@ -6,7 +6,7 @@ import axios from "axios"
 import { useState } from 'react'
 import { useEffect } from 'react'
 
-function Course() {
+function Books() {
   const [book, setBook] = useState([]);
 
   useEffect(() => {
@@ -48,4 +48,4 @@ function Course() {
   )
 }
 
-export default Course
+export default Books

@@ -1,5 +1,5 @@
 import React from 'react'
-import Course from '../components/Course'
+import Books from '../components/Books'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 
@@ -9,7 +9,7 @@ function Courses() {
       <div className='overflow-x-hidden'>
         <Navbar />
         <div>
-          <Course />
+          <Books />
         </div>
         <Footer />
       </div>

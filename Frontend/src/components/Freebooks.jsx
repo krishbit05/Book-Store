@@ -62,9 +62,9 @@ function Freebooks() {
         <>
             <div className='flex flex-col gap-1 ml-16 mt-12 mr-16'>
 
-                <div className="dark:text-white/95 pl-2">
-                    <h1 className='font-bold sm:text-2xl'>Free offered Courses</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam fugit sequi mollitia provident, error deserunt. Impedit harum pariatur earum velit, reiciendis voluptas eos quae saepe.</p>
+                <div className="pl-2">
+                    <h1 className='font-bold sm:text-2xl text-pink-500'>Free offered Books</h1>
+                    <p className="dark:text-white/85">Explore a wide range of free books across various categories including fiction, non-fiction, self-help, academics, technology, and more. Perfect for readers of all ages, these books are available at no cost to help you read, learn, and grow without limits.</p>
                 </div>
 
                 <div className="">

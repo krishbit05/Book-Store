@@ -13,7 +13,7 @@ function Banner() {
           </div>
         </div>
         <p className="mt-4 text-gray-600 dark:text-white/50 max-w-md mx-auto md:mx-0">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos ipsam optio harum hic saepe, exercitationem sed iusto adipisci tenetur aliquid.
+        Browse trending titles, discover hidden gems, or dive into classics – all in one place.
         </p>
 
         <div className="flex items-center border border-gray-300 rounded-md px-4 py-4 mt-5 max-w-md mx-auto md:mx-0 shadow-sm">

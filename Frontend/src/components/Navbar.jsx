@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthProvider';
 import Login from './Login';
 import Logout from './Logout';
-
+import {ShoppingCart} from "lucide-react"
+ 
 function Navbar() {
   const [authUser, setAuthUser] = useAuth();
 
@@ -37,14 +38,14 @@ function Navbar() {
   const navItems = (
     <>
       <li><a href="/" className="hover:text-pink-500 block px-4 py-2 dark:text-white/90 dark:hover:text-pink-500">Home</a></li>
-      <li><a href="/course" className="hover:text-pink-500 block px-4 py-2 dark:text-white/90 dark:hover:text-pink-500">Course</a></li>
+      <li><a href="/course" className="hover:text-pink-500 block px-4 py-2 dark:text-white/90 dark:hover:text-pink-500">Books</a></li>
       <li><a href="/contact" className="hover:text-pink-500 block px-4 py-2 dark:text-white/90 dark:hover:text-pink-500">Contact</a></li>
-      <li><a href="/about" className="hover:text-pink-500 block px-4 py-2 dark:text-white/90 dark:hover:text-pink-500">About</a></li>
+      <li><a href="/purchases" className="hover:text-pink-500 block px-4 py-2 dark:text-white/90 dark:hover:text-pink-500"><ShoppingCart/></a></li>
     </>
   );
 
   return (
-    <header className={`z-50 fixed top-0 w-full transition-all ${scrolled ? 'bg-red-100 shadow-md dark:bg-black/60 dark:backdrop-blur-lg' : ''} dark:bg-transparent dark:text-white  transition: background-color 0.3s, color 0.3s`}>
+    <header className={`z-50 fixed top-0 w-full transition-all ${scrolled ? 'bg-red-100 shadow-md dark:bg-black/60 dark:backdrop-blur-lg' : ''} dark:bg-grey-900 dark:text-white  transition: background-color 0.3s, color 0.3s`}>
       <nav className="flex items-center justify-between mr-4 px-4 py-3 md:px-10">
         <a href="#" className="text-2xl font-bold text-gray-800 flex items-center gap-1 dark:text-white/95">
           Book <span className="text-pink-500">Store</span>
@@ -65,7 +66,7 @@ function Navbar() {
               <input type="search" placeholder="Search" className="w-full outline-none text-sm bg-transparent dark:text-black dark:placeholder:text-black" />
             </div>
           </div>
-
+          
           <div onClick={() => setIsDark(!isDark)} className="cursor-pointer">
             {isDark ? (
               // sun
