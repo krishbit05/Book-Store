@@ -7,7 +7,7 @@ import Navbar from '../components/Navbar'
 function Home() {
     return (
         <>
-            <div className="overflow-x-hidden dark:bg-black">
+            <div className="overflow-x-hidden dark:bg-black/95">
                 <Navbar />               
                 <main className="pt-20">
                     <Banner />

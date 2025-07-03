@@ -32,7 +32,7 @@ function Banner() {
             />
           </svg>
 
-          <input className="outline-none w-full ml-2 text-md dark:bg-black dark:text-white" type="text" placeholder="Enter your email..." />
+          <input className="outline-none w-full ml-2 text-md dark:bg-transparent dark:text-white" type="text" placeholder="Enter your email..." />
         </div>
 
         <div className="mt-5">

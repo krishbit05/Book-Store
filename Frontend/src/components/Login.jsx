@@ -1,10 +1,43 @@
 import React, { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
+import {data} from "react-router-dom"
+import axios from "axios";
 
 function Login({ isOpen, onClose }) {
     const modalRef = useRef();
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = async (data) => {
+        const userInfo = {
+            email: data.email,
+            password: data.password,
+        }
+    
+        try {
+            const res = await axios.post("http://localhost:4001/login", userInfo, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+    
+            console.log("FULL RESPONSE:", res.data);
+    
+            if (res.data && res.data.message && res.data.user) {
+                alert("Login successful");
+                localStorage.setItem("Users", JSON.stringify(res.data.user));
+            } else {
+                alert("Unexpected response format");
+            }
+    
+        } catch (err) {
+            if (err.response && err.response.data && err.response.data.message) {
+                console.error(err);
+                alert("Error: " + err.response.data.message);
+            } else {
+                console.error("Unexpected error:", err);
+                alert("Something went wrong");
+            }
+        }
+    };
 
     // Disable scroll when modal is open
     useEffect(() => {
@@ -66,7 +99,7 @@ function Login({ isOpen, onClose }) {
                                 type="text"
                                 placeholder="Enter your email"
                                 className="mt-1 w-full border border-gray-400 dark:border-gray-600 rounded-md p-2 bg-transparent"
-                                {...register("email", { required: true })} 
+                                {...register("email", { required: true })}
                             />
                             {errors.email && <span className="text-sm text-red-500">*This field is required</span>}
                         </div>
@@ -76,7 +109,7 @@ function Login({ isOpen, onClose }) {
                                 type="password"
                                 placeholder="Enter your password"
                                 className="mt-1 w-full border border-gray-400 dark:border-gray-600 rounded-md p-2 bg-transparent"
-                                {...register("password", { required: true })} 
+                                {...register("password", { required: true })}
                             />
                             {errors.password && <span className="text-sm text-red-500">*This field is required</span>}
                         </div>

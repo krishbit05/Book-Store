@@ -2,12 +2,29 @@ import React from 'react'
 import Cards from "./Cards"
 import list from "../../public/Freebooks.json"
 import { Link } from "react-router-dom"
+import axios from "axios"
+import { useState } from 'react'
+import { useEffect } from 'react'
 
 function Course() {
-  console.log(list);
+  const [book, setBook] = useState([]);
+
+  useEffect(() => {
+    const getBook = async () => {
+      try {
+        const res = await axios.get("http://localhost:4001/book");
+        console.log(res.data);
+        setBook(res.data);
+      }
+      catch (err) {
+        console.log(err);
+      }
+    }
+    getBook();
+  }, [])
   return (
     <>
-      <div className='md:px-20 px-4 dark:bg-black dark:text-white/80'>
+      <div className='md:px-20 px-4 dark:bg-black/95 dark:text-white/80'>
         <div className='text-center pt-24'>
           <h1 className='text-xl md:text-2xl font-semibold'>We're delighted to have you {""}
             <span className="text-pink-500">here! :)</span>
@@ -21,8 +38,8 @@ function Course() {
         </div>
         <div className="mt-12 grid grid-cols-1 md:grid-cols-4">
           {
-            list.map((item) => (
-              <Cards item={item} key={item.id} />
+            book.map((item) => (
+              <Cards item={item} key={item._id} />
             ))
           }
         </div>

@@ -2,11 +2,37 @@ import React from 'react'
 import Login from '../components/Login'
 import { useState } from 'react'
 import { useForm } from "react-hook-form";
+import {data}  from 'react-router-dom';
+import axios from 'axios';
 
 function Signup() {
     const [showLogin, setShowLogin] = useState(false);
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = async (data) => {
+        const userInfo = {
+            fullname:data.fullname,
+            email: data.email,
+            password:data.password,
+        }
+        try {
+            const res = await axios.post("http://localhost:4001/signup", userInfo);
+        
+            console.log(res.data); // Log full response
+        
+            if (res.data && res.data.message) {
+              alert("Signup successful");
+            }
+            localStorage.setItem("Users",JSON.stringify(res.data.user));
+          } catch (err) {
+            if (err.response && err.response.data && err.response.data.message) {
+              console.error(err);
+              alert("Error: " + err.response.data.message);
+            } else {
+              console.error("Unexpected error:", err);
+              alert("Something went wrong");
+            }
+          } 
+    };
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <div
@@ -29,9 +55,9 @@ function Signup() {
                                 type="text"
                                 placeholder="Enter your name"
                                 className="mt-1 w-full border border-gray-400 dark:border-gray-600 rounded-md p-2 bg-transparent"
-                                {...register("name", { required: true })}
+                                {...register("fullname", { required: true })}
                             />
-                            {errors.name && <span className="text-sm text-red-500">*This field is required</span>}
+                            {errors.fullname && <span className="text-sm text-red-500">*This field is required</span>}
                         </div>
                         <div>
                             <label>Email</label>

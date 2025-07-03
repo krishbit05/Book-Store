@@ -39,7 +39,7 @@ function Navbar() {
   );
 
   return (
-    <header className={`z-50 fixed top-0 w-full transition-all ${scrolled ? 'bg-red-100 shadow-md dark:bg-black/50 dark:backdrop-blur-md' : 'bg-white '} dark:bg-black dark:text-white  transition: background-color 0.3s, color 0.3s`}>
+    <header className={`z-50 fixed top-0 w-full transition-all ${scrolled ? 'bg-red-100 shadow-md dark:bg-black/60 dark:backdrop-blur-lg' : ''} dark:bg-transparent dark:text-white  transition: background-color 0.3s, color 0.3s`}>
       <nav className="flex items-center justify-between mr-4 px-4 py-3 md:px-10">
         <a href="#" className="text-2xl font-bold text-gray-800 flex items-center gap-1 dark:text-white/95">
           Book <span className="text-pink-500">Store</span>
