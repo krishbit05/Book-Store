@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import {data} from "react-router-dom"
 import axios from "axios";
+import { toast } from "react-hot-toast";
 
 function Login({ isOpen, onClose }) {
     const modalRef = useRef();
@@ -22,7 +23,7 @@ function Login({ isOpen, onClose }) {
             console.log("FULL RESPONSE:", res.data);
     
             if (res.data && res.data.message && res.data.user) {
-                alert("Login successful");
+                toast.success("Login successful");
                 localStorage.setItem("Users", JSON.stringify(res.data.user));
             } else {
                 alert("Unexpected response format");
@@ -31,7 +32,7 @@ function Login({ isOpen, onClose }) {
         } catch (err) {
             if (err.response && err.response.data && err.response.data.message) {
                 console.error(err);
-                alert("Error: " + err.response.data.message);
+                toast.error("Error: " + err.response.data.message);
             } else {
                 console.error("Unexpected error:", err);
                 alert("Something went wrong");

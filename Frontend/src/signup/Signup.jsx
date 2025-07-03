@@ -4,9 +4,9 @@ import { useState } from 'react'
 import { useForm } from "react-hook-form";
 import {data}  from 'react-router-dom';
 import axios from 'axios';
+import { toast } from 'react-hot-toast';
 
 function Signup() {
-    const [showLogin, setShowLogin] = useState(false);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = async (data) => {
         const userInfo = {
@@ -20,13 +20,13 @@ function Signup() {
             console.log(res.data); // Log full response
         
             if (res.data && res.data.message) {
-              alert("Signup successful");
+              toast.success("Signup Success")
             }
             localStorage.setItem("Users",JSON.stringify(res.data.user));
           } catch (err) {
             if (err.response && err.response.data && err.response.data.message) {
               console.error(err);
-              alert("Error: " + err.response.data.message);
+              toast.error("Error: " + err.response.data.message);
             } else {
               console.error("Unexpected error:", err);
               alert("Something went wrong");
@@ -86,10 +86,9 @@ function Signup() {
                         </button>
                         <div className="text-sm">
                             <span>Have account? </span>
-                            <button onClick={() => setShowLogin(true)} className="underline text-blue-500">
+                            <a href='/' className="underline text-blue-500">
                                 login
-                            </button>
-                            <Login isOpen={showLogin} onClose={() => setShowLogin(false)} />
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useAuth } from '../context/AuthProvider';
 import Login from './Login';
 
 function Navbar() {
+
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light");
   const [isDark, setIsDark] = useState(theme === "dark" ? true : false);
   const [showLogin, setShowLogin] = useState(false);
   const element = document.documentElement;
+
   useEffect(() => {
     if (theme === "dark") {
       element.classList.add("dark");
