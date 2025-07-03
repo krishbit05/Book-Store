@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
-import {data} from "react-router-dom"
+import {data, Navigate, useNavigate} from "react-router-dom"
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
 function Login({ isOpen, onClose }) {
+    const navigate = useNavigate();
     const modalRef = useRef();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = async (data) => {
@@ -25,6 +26,10 @@ function Login({ isOpen, onClose }) {
             if (res.data && res.data.message && res.data.user) {
                 toast.success("Login successful");
                 localStorage.setItem("Users", JSON.stringify(res.data.user));
+                navigate('/');
+                setTimeout(()=>{
+                    window.location.reload();
+                },2000);
             } else {
                 alert("Unexpected response format");
             }

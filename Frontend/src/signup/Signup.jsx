@@ -2,12 +2,13 @@ import React from 'react'
 import Login from '../components/Login'
 import { useState } from 'react'
 import { useForm } from "react-hook-form";
-import {data}  from 'react-router-dom';
+import {data, useNavigate}  from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 
 function Signup() {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const navigate = useNavigate();
     const onSubmit = async (data) => {
         const userInfo = {
             fullname:data.fullname,
@@ -20,9 +21,9 @@ function Signup() {
             console.log(res.data); // Log full response
         
             if (res.data && res.data.message) {
-              toast.success("Signup Success")
+              toast.success("Signup Success");
+              navigate('/');
             }
-            localStorage.setItem("Users",JSON.stringify(res.data.user));
           } catch (err) {
             if (err.response && err.response.data && err.response.data.message) {
               console.error(err);

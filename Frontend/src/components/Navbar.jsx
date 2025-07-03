@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthProvider';
 import Login from './Login';
+import Logout from './Logout';
 
 function Navbar() {
+  const [authUser, setAuthUser] = useAuth();
 
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -89,10 +91,16 @@ function Navbar() {
               </svg>
             )}
           </div>
-          <div>
-            <a className="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-700 text-sm transition font-semibold " onClick={() => setShowLogin(true)}>Login</a>
-            <Login isOpen={showLogin} onClose={() => setShowLogin(false)} />
-          </div>
+          {
+            authUser ? (
+              <Logout />
+            ) : (
+              <div>
+                <a className="bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-700 text-sm transition font-semibold " onClick={() => setShowLogin(true)}>Login</a>
+                <Login isOpen={showLogin} onClose={() => setShowLogin(false)} />
+              </div>
+            )
+          }
           <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden">
             <svg className="w-6 h-6 text-gray-700 dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isOpen ? (
