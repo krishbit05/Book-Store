@@ -1,6 +1,5 @@
 import React from 'react'
 import Cards from "./Cards"
-import list from "../../public/Freebooks.json"
 import { Link } from "react-router-dom"
 import axios from "axios"
 import { useState } from 'react'

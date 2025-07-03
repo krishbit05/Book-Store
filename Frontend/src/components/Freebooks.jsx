@@ -3,7 +3,6 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
 import React, { useState } from 'react'
-import list from "../../public/Freebooks.json"
 import axios from "axios"
 import Cards from "./Cards";
 import { useEffect } from "react";
