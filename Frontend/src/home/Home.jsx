@@ -11,7 +11,6 @@ function Home() {
                 <Navbar />               
                 <main className="pt-20">
                     <Banner />
-                    <Freebooks />
                 </main>
                 <Footer/>
             </div>

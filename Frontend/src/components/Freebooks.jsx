@@ -7,8 +7,9 @@ import list from "../../public/Freebooks.json"
 import axios from "axios"
 import Cards from "./Cards";
 import { useEffect } from "react";
+import { forwardRef } from "react";
 
-function Freebooks() {
+const Freebooks = forwardRef((props,ref)=> {
     const [book,setBook] = useState([]);
 
     useEffect(()=>{
@@ -60,7 +61,7 @@ function Freebooks() {
     };
     return (
         <>
-            <div className='flex flex-col gap-1 ml-16 mt-12 mr-16'>
+            <div ref ={ref} className='flex flex-col gap-1 ml-16 mt-12 mr-16'>
 
                 <div className="pl-2">
                     <h1 className='font-bold sm:text-2xl text-pink-500'>Free offered Books</h1>
@@ -79,6 +80,6 @@ function Freebooks() {
             </div>
         </>
     )
-}
+});
 
-export default Freebooks
+export default Freebooks;

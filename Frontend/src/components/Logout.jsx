@@ -13,6 +13,7 @@ export default function Logout(){
                 user:null
             })
             localStorage.removeItem("Users");
+            localStorage.removeItem("userEmail");
             toast.success("Logout Success");
             navigate('/');
             setTimeout(()=>{
